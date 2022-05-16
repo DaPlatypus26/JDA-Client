@@ -14,8 +14,8 @@ public class Colors {
     public static Color components2; //light
 
     public Colors() {
-        background = Color.decode("#36393F");
-        components = Color.decode("#2F3136");
+        background = Color.decode("#2F3136");
+        components = Color.decode("#36393F");
         components1 = Color.decode("#202225");
         components2 = Color.decode("#99AAB5");
     }
@@ -26,12 +26,10 @@ public class Colors {
             components = Color.decode("#ECECEC");
             components1 = Color.decode("#D8D8D8");
             components2 = Color.decode("#676767");
-
-            Chat.update();
         }
         else {
             new Colors();
-            Chat.update();
         }
+        Chat.update();
     }
 }
