@@ -1,5 +1,6 @@
 package jdaclient.layouts;
 
+import jdaclient.Main;
 import jdaclient.panels.Chat;
 
 import java.awt.*;
@@ -23,13 +24,14 @@ public class Colors {
     public static void update() {
         if(!darkmode) {
             background = Color.decode("#F5F5F5");
-            components = Color.decode("#ECECEC");
-            components1 = Color.decode("#D8D8D8");
+            components = Color.decode("#D8D8D8");
+            components1 = Color.decode("#ECECEC");
             components2 = Color.decode("#676767");
         }
         else {
             new Colors();
         }
         Chat.update();
+        Main.update();
     }
 }

@@ -5,6 +5,7 @@ import jdaclient.listener.ActionHandler;
 import jdaclient.panels.Chat;
 
 import javax.swing.*;
+import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 
 public class Main {
@@ -18,6 +19,7 @@ public class Main {
 
     public static JMenuBar menu;
     public static JMenu bot;
+    public static JMenuItem setup;
     public static JMenu settings;
     public static JMenu appearance;
     public static JMenu theme;
@@ -25,7 +27,6 @@ public class Main {
     public static JMenuItem light;
     public static JMenu language;
     public static JMenu window;
-    public static JMenu logout;
 
     public static void main(String[] args) {
         new Colors();
@@ -42,89 +43,49 @@ public class Main {
         frame.pack();
         frame.setVisible(true);
 
-
         menuFont = new Font(Font.DIALOG, Font.PLAIN, 20);
         menuItemFont = new Font(Font.DIALOG, Font.PLAIN, 16);
 
+        UIManager.put("MenuBar.background", Colors.components);
+        UIManager.put("MenuBar.foreground", Colors.components2);
+        UIManager.put("MenuBar.border", null);
+        UIManager.put("MenuBar.opaque", true);
+
+        UIManager.put("Menu.font", menuFont);
+        UIManager.put("Menu.background", Colors.components);
+        UIManager.put("Menu.foreground", Colors.components2);
+        UIManager.put("Menu.border", null);
+        UIManager.put("Menu.opaque", true);
+
+        UIManager.put("MenuItem.font", menuItemFont);
+        UIManager.put("MenuItem.background", Colors.components);
+        UIManager.put("MenuItem.foreground", Colors.components2);
+        UIManager.put("MenuItem.border", null);
+        UIManager.put("MenuItem.opaque", true);
+
         menu = new JMenuBar();
-        menu.setBackground(Colors.components);
         menu.setBorderPainted(false);
-        menu.setBorder(null);
-        menu.setOpaque(true);
 
         //bot
         bot = new JMenu("Bot");
-        bot.setFont(menuFont);
-        bot.setBackground(Colors.components);
-        bot.setForeground(Colors.components2);
-        bot.setBorder(null);
-        bot.setOpaque(true);
+        setup = new JMenuItem("Setup");
 
         //settings
         settings = new JMenu("Settings");
-        settings.setFont(menuFont);
-        settings.setBackground(Colors.components);
-        settings.setForeground(Colors.components2);
-        settings.setBorderPainted(false);
-        settings.setBorder(null);
-        settings.setOpaque(true);
 
         //appearance
         appearance = new JMenu("Appearance");
-        appearance.setFont(menuFont);
-        appearance.setBackground(Colors.components);
-        appearance.setForeground(Colors.components2);
-        appearance.setBorderPainted(false);
-        appearance.setBorder(null);
-        appearance.setOpaque(true);
-
         theme = new JMenu("Theme");
-        theme.setFont(menuItemFont);
-        theme.setBackground(Colors.components);
-        theme.setForeground(Colors.components2);
-        theme.setBorder(null);
-        theme.setOpaque(true);
-
         dark = new JMenuItem("Dark");
-        dark.setFont(menuItemFont);
         dark.addActionListener(new ActionHandler());
-        dark.setBackground(Colors.components);
-        dark.setForeground(Colors.components2);
-        dark.setBorder(null);
-        dark.setOpaque(true);
-
         light = new JMenuItem("Light");
-        light.setFont(menuItemFont);
         light.addActionListener(new ActionHandler());
-        light.setBackground(Colors.components);
-        light.setForeground(Colors.components2);
-        light.setBorder(null);
-        light.setOpaque(true);
 
         //language
         language = new JMenu("Language");
-        language.setFont(menuFont);
-        language.setBackground(Colors.components);
-        language.setForeground(Colors.components2);
-        language.setBorder(null);
-        language.setOpaque(true);
 
         //window
         window = new JMenu("Window");
-        window.setFont(menuFont);
-        window.setBackground(Colors.components);
-        window.setForeground(Colors.components2);
-        window.setBorder(null);
-        window.setOpaque(true);
-
-        //logout
-        logout = new JMenu("Logout");
-        logout.setFont(menuFont);
-        logout.addActionListener(new ActionHandler());
-        logout.setBackground(Colors.components);
-        logout.setForeground(Colors.components2);
-        logout.setBorder(null);
-        logout.setOpaque(true);
 
 
         menu.add(bot);
@@ -137,12 +98,38 @@ public class Main {
         settings.add(window);
         menu.add(settings);
 
-        menu.add(logout);
-
         frame.setJMenuBar(menu);
     }
 
     public static void update() {
+        menu.setBackground(Colors.components);
+        menu.setForeground(Colors.components2);
 
+        bot.setBackground(Colors.components);
+        bot.setForeground(Colors.components2);
+
+        setup.setBackground(Colors.components);
+        setup.setForeground(Colors.components2);
+
+        settings.setBackground(Colors.components);
+        settings.setForeground(Colors.components2);
+
+        appearance.setBackground(Colors.components);
+        appearance.setForeground(Colors.components2);
+
+        theme.setBackground(Colors.components);
+        theme.setForeground(Colors.components2);
+
+        dark.setBackground(Colors.components);
+        dark.setForeground(Colors.components2);
+
+        light.setBackground(Colors.components);
+        light.setForeground(Colors.components2);
+
+        language.setBackground(Colors.components);
+        language.setForeground(Colors.components2);
+
+        window.setBackground(Colors.components);
+        window.setForeground(Colors.components2);;
     }
 }
