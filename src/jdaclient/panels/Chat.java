@@ -62,7 +62,7 @@ public class Chat extends JPanel {
         background.setBackground(Colors.background);
 
         textPanel.setBackground(Colors.components);
-        
+
         textField.setForeground(Colors.components2);
         textField.setCaretColor(Colors.components2);
     }

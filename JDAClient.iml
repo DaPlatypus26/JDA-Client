@@ -10,7 +10,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/JDA-5.0.0-alpha.11-withDependencies.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/JDA-5.0.0-alpha.11-withDependencies.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
