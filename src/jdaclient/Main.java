@@ -7,6 +7,7 @@ import jdaclient.panels.Chat;
 import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
+import java.util.Arrays;
 
 public class Main {
 
@@ -27,6 +28,7 @@ public class Main {
     public static JMenuItem light;
     public static JMenu language;
     public static JMenu window;
+    public static JMenu server;
 
     public static void main(String[] args) {
         new Colors();
@@ -46,6 +48,10 @@ public class Main {
         menuFont = new Font(Font.DIALOG, Font.PLAIN, 20);
         menuItemFont = new Font(Font.DIALOG, Font.PLAIN, 16);
 
+        UIManager.put("PopupMenu.background", Colors.components);
+        UIManager.put("PopupMenu.border", null);
+        UIManager.put("PopupMenu.borderPainted", false);
+
         UIManager.put("MenuBar.background", Colors.components);
         UIManager.put("MenuBar.foreground", Colors.components2);
         UIManager.put("MenuBar.border", null);
@@ -56,11 +62,14 @@ public class Main {
         UIManager.put("Menu.foreground", Colors.components2);
         UIManager.put("Menu.border", null);
         UIManager.put("Menu.opaque", true);
+        UIManager.put("Menu.selectionBackground", Colors.hover);
+        UIManager.put("Menu.selectionForeground", Colors.components2);
 
         UIManager.put("MenuItem.font", menuItemFont);
         UIManager.put("MenuItem.background", Colors.components);
         UIManager.put("MenuItem.foreground", Colors.components2);
         UIManager.put("MenuItem.border", null);
+        UIManager.put("MenuItem.borderPainted", false);
         UIManager.put("MenuItem.opaque", true);
 
         menu = new JMenuBar();
@@ -69,6 +78,11 @@ public class Main {
         //bot
         bot = new JMenu("Bot");
         setup = new JMenuItem("Setup");
+        setup.addActionListener(new ActionHandler());
+        //setup.setBorderPainted(false);
+
+        //bot.getPopupMenu().setBackground(Colors.components);
+        //bot.getPopupMenu().setBorderPainted(false);
 
         //settings
         settings = new JMenu("Settings");
@@ -87,7 +101,11 @@ public class Main {
         //window
         window = new JMenu("Window");
 
+        //server
+        server = new JMenu("Server");
 
+
+        bot.add(setup);
         menu.add(bot);
 
         theme.add(dark);
@@ -102,7 +120,7 @@ public class Main {
     }
 
     public static void update() {
-        menu.setBackground(Colors.components);
+        /*menu.setBackground(Colors.components);
         menu.setForeground(Colors.components2);
 
         bot.setBackground(Colors.components);
@@ -130,6 +148,9 @@ public class Main {
         language.setForeground(Colors.components2);
 
         window.setBackground(Colors.components);
-        window.setForeground(Colors.components2);;
+        window.setForeground(Colors.components2);*/
+
+        SwingUtilities.updateComponentTreeUI(menu);
+        SwingUtilities.updateComponentTreeUI(frame);
     }
 }

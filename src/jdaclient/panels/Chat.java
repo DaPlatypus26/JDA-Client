@@ -10,10 +10,15 @@ import java.awt.*;
 
 public class Chat extends JPanel {
 
-    static JPanel background;
+    public static JPanel background;
+
+
+    static Font textFont;
+
+    static JPanel chatPanel;
+    static JTextPane chatField;
 
     static JPanel textPanel;
-    static Font textFont;
     public static JTextField textField;
 
     public Chat() {
@@ -27,6 +32,8 @@ public class Chat extends JPanel {
         background.setPreferredSize(new Dimension(750,500));
         background.setBackground(Colors.background);
 
+        textFont = new Font(Font.DIALOG, Font.PLAIN, 16);
+
         //textField Panel
         textPanel = new JPanel();
         textPanel.setLayout(new BorderLayout(5,0));
@@ -34,12 +41,10 @@ public class Chat extends JPanel {
         textPanel.setPreferredSize(new Dimension(background.getWidth(),40));
         textPanel.setBackground(Colors.components);
 
-        textFont = new Font(Font.DIALOG, Font.PLAIN, 16);
-
         textField = new JTextField();
         textField.setFont(textFont);
         textField.setOpaque(false);
-        textField.setBackground(Colors.components);
+        textField.setBackground(null);
         textField.setBorder(null);
         textField.setForeground(Colors.components2);
         textField.setCaretColor(Colors.components2);
@@ -57,8 +62,7 @@ public class Chat extends JPanel {
         background.setBackground(Colors.background);
 
         textPanel.setBackground(Colors.components);
-
-        textField.setBackground(Colors.components);
+        
         textField.setForeground(Colors.components2);
         textField.setCaretColor(Colors.components2);
     }
