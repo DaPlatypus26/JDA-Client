@@ -23,7 +23,7 @@ public class Colors {
         hover = Color.decode("#4d525b");
     }
 
-    public static void update() {
+    public static void updateColors() {
         if(!darkmode) {
             background = Color.decode("#F5F5F5");
             components = Color.decode("#D8D8D8");
@@ -34,7 +34,7 @@ public class Colors {
         else {
             new Colors();
         }
-        Chat.update();
-        Main.update();
+        Chat.repaintComponents();
+        Main.repaintComponents();
     }
 }

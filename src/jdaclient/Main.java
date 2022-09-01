@@ -3,11 +3,14 @@ package jdaclient;
 import jdaclient.layouts.Colors;
 import jdaclient.listener.ActionHandler;
 import jdaclient.panels.Chat;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.Activity;
 
+import javax.security.auth.login.LoginException;
 import javax.swing.*;
-import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
-import java.util.Arrays;
 
 public class Main {
 
@@ -119,8 +122,8 @@ public class Main {
         frame.setJMenuBar(menu);
     }
 
-    public static void update() {
-        /*menu.setBackground(Colors.components);
+    public static void repaintComponents() {
+        menu.setBackground(Colors.components);
         menu.setForeground(Colors.components2);
 
         bot.setBackground(Colors.components);
@@ -148,9 +151,6 @@ public class Main {
         language.setForeground(Colors.components2);
 
         window.setBackground(Colors.components);
-        window.setForeground(Colors.components2);*/
-
-        SwingUtilities.updateComponentTreeUI(menu);
-        SwingUtilities.updateComponentTreeUI(frame);
+        window.setForeground(Colors.components2);
     }
 }
